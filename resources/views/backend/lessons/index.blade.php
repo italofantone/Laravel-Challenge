@@ -39,7 +39,7 @@
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-                                        <button class="btn btn-sm btn-danger">
+                                        <button class="btn btn-sm btn-danger delete">
                                             Remove
                                         </button> 
                                     
@@ -56,4 +56,22 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){       
+        $(".delete").on("click", function(e) { 
+
+            e.preventDefault(); 
+
+            if (!confirm("Are you sure to delete?")) { 
+                return false; 
+            } 
+
+            form = $(this).parent(); 
+            $(form).submit();
+        });
+    });
+</script>
 @endsection

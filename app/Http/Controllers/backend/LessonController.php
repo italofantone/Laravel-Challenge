@@ -42,7 +42,9 @@ class LessonController extends Controller
     {
         $lesson = Lesson::create($request->all());
 
-        return redirect()->route('lessons.edit', $lesson->id);
+        return redirect()
+                ->route('lessons.edit', $lesson->id)
+                ->with('info', 'Saved successfully');
     }
 
     /**
@@ -76,9 +78,11 @@ class LessonController extends Controller
      */
     public function update(LessonUpdateRequest $request, Lesson $lesson)
     {
-        $lesson->update($request->all())->save();
+        $lesson->update($request->all());
 
-        return redirect()->route('lessons.edit', $lesson->id);
+        return redirect()
+                ->route('lessons.edit', $lesson->id)
+                ->with('info', 'Successfully updated');
     }
 
     /**
@@ -91,6 +95,6 @@ class LessonController extends Controller
     {
         $lesson->delete();
 
-        return back();
+        return back()->with('info', 'Successfully removed');
     }
 }

@@ -15,6 +15,7 @@
                     <form action="{{ route('lessons.update', $lesson->id) }}" method="POST">
                         
                         {{ csrf_field() }}
+                        {{ method_field('PUT') }}
 
                         <div class="form-group">
                             <label for="name">Name *</label>
