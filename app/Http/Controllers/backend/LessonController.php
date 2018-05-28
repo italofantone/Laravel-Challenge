@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
+
+use App\Http\Requests\LessonStoreRequest;
+use App\Http\Requests\LessonUpdateRequest;
+use App\Http\Controllers\Controller;
 
 use App\Lesson;
-use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
@@ -14,7 +17,9 @@ class LessonController extends Controller
      */
     public function index()
     {
-        //
+        $lessons = Lesson::orderBy('id', 'DESC')->paginate(12);
+
+        return view('backend.lessons.index', compact('lessons'));
     }
 
     /**
@@ -24,7 +29,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.lessons.create');
     }
 
     /**
@@ -33,9 +38,11 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LessonStoreRequest $request)
     {
-        //
+        $lesson = Lesson::create($request->all());
+
+        return redirect()->route('lessons.edit', $lesson->id);
     }
 
     /**
@@ -46,7 +53,7 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        //
+        return view('backend.lessons.show', compact('lesson'));
     }
 
     /**
@@ -57,7 +64,7 @@ class LessonController extends Controller
      */
     public function edit(Lesson $lesson)
     {
-        //
+        return view('backend.lessons.edit', compact('lesson'));
     }
 
     /**
@@ -67,9 +74,11 @@ class LessonController extends Controller
      * @param  \App\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lesson $lesson)
+    public function update(LessonUpdateRequest $request, Lesson $lesson)
     {
-        //
+        $lesson->update($request->all())->save();
+
+        return redirect()->route('lessons.edit', $lesson->id);
     }
 
     /**
@@ -80,6 +89,8 @@ class LessonController extends Controller
      */
     public function destroy(Lesson $lesson)
     {
-        //
+        $lesson->delete();
+
+        return back();
     }
 }

@@ -19,7 +19,6 @@ class CreateLessonsTable extends Migration
             $table->string('name', 128);
             $table->string('slug', 128)->unique();
 
-            $table->string('image')->nullable();
             $table->text('body');
 
             $table->timestamps();
