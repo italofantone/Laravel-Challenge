@@ -23,9 +23,6 @@
                 .then(response => {
                     this.lesson = response.data;
                 })
-                .catch(err => {
-                    console.log(err.response.data);
-                })
         }
     }
 </script>
