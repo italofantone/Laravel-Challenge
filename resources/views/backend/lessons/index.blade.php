@@ -26,7 +26,7 @@
                             @foreach($lessons as $lesson)
                             <tr>
                                 <td>{{ $lesson->id }}</td>
-                                <td>{{ $lesson->name }}</td>
+                                <td>{{ $lesson->title }}</td>
                                 <td width="10px">
                                     <a href="{{ route('lessons.show', $lesson->id) }}" class="btn btn-sm btn-default">See</a>
                                 </td>

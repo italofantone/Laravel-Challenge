@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="panel-body">                    
-                    <p><strong>Name</strong> {{ $lesson->name }}</p>
+                    <p><strong>Name</strong> {{ $lesson->title }}</p>
                     <p><strong>Slug</strong> {{ $lesson->slug }}</p>
                     <p><strong>Body</strong> {!! $lesson->body !!}</p>
                 </div>

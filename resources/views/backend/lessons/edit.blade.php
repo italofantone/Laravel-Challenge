@@ -5,21 +5,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    Create lesson
-                    <a href="{{ url()->previous() }}" class="pull-right btn btn-sm btn-primary">Back</a>
-                </div>
+                <div class="panel-heading">Edit lesson</div>
 
                 <div class="panel-body">                    
                     
                     <form action="{{ route('lessons.update', $lesson->id) }}" method="POST">
                         
                         {{ csrf_field() }}
-                        {{ method_field('PUT') }}
+                        {{ method_field('PATCH') }}
 
                         <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name', $lesson->name) }}">
+                            <label for="title">Name *</label>
+                            <input type="text" name="title" class="form-control" value="{{ old('title', $lesson->title) }}">
                         </div>
                         <div class="form-group">
                             <label for="slug">Slug *</label>

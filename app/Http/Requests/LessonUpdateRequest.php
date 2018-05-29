@@ -24,9 +24,9 @@ class LessonUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'slug' => 'required|unique:lessons,slug,' . $this->lesson,
-            'body' => 'required'
+            'title' => 'required',
+            'slug'  => 'required|unique:lessons,slug,' . $this->lesson->id,
+            'body'  => 'required'
         ];
     }
 }

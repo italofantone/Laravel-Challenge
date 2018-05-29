@@ -78,7 +78,7 @@ class LessonController extends Controller
      */
     public function update(LessonUpdateRequest $request, Lesson $lesson)
     {
-        $lesson->update($request->all());
+        $lesson->fill($request->all())->save();
 
         return redirect()
                 ->route('lessons.edit', $lesson->id)

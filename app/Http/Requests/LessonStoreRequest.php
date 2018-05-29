@@ -24,9 +24,9 @@ class LessonStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'slug' => 'required|unique:lessons,slug',
-            'body' => 'required'
+            'title' => 'required',
+            'slug'  => 'required|unique:lessons,slug',
+            'body'  => 'required'
         ];
     }
 }

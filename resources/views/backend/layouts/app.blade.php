@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">SPA - VUEjs & Laravel</a>
+                    <a class="navbar-brand" href="{{ route('lessons.index') }}">SPA - VUEjs & Laravel</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -39,6 +39,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ route('lessons.index') }}">Lessons</a></li>
                         <li><a href="{{ route('home') }}">Go to the SPA</a></li>
                     </ul>
                 </div>

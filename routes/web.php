@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('home');
-
 // Backend
 Route::resource('lessons', 'backend\LessonController');
+
+// SPA
+Route::get('/{any?}', 'PageController@index')->name('home');
